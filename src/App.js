@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import {BrowserRouter as Route, BrowserRouter, Switch,NavLink } from 'react-router-dom';
+import AddCommodity from '../src/component/AddCommodity';
+import Order from '../src/component/Order';
+import Mall from '../src/component/Mall';
+import '../src/css/mall.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+    <BrowserRouter>
+        <nav className="/header">
+            <ul>
+                <li><NavLink to="/mall" className="mall">商城</NavLink></li>
+                <li><NavLink to="/order" className="order">订单</NavLink></li>
+                <li><NavLink to="/addCommodity" className="addCommodity">+ 添加商品</NavLink></li>
+            </ul>
+                
+        </nav>
+        <Switch>
+            <Route exact path="/mall" component={Mall}></Route>
+            <Route exact path="/order" component={Order}></Route>
+            <Route exact path="/addCommodity" component={AddCommodity}></Route>
+        </Switch>
+    </BrowserRouter>
+    );
+  }
 }
 
 export default App;
