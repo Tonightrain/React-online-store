@@ -15,7 +15,6 @@ class App extends Component {
                 <li><NavLink to="/order" className="order">订单</NavLink></li>
                 <li><NavLink to="/addCommodity" className="addCommodity">+ 添加商品</NavLink></li>
             </ul>
-                
         </nav>
         <Switch>
             <Route exact path="/mall" component={Mall}></Route>
